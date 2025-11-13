@@ -29,7 +29,7 @@ zentel_pipeline/
 1. Clone the repository:
 
 ```bash
-git clone https://github.com/<your-username>/zentel_pipeline.git
+git clone https://github.com/Sallie25/zentel_pipeline.git
 cd zentel_pipeline
 ```
 
