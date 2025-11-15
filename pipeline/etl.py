@@ -2,6 +2,7 @@ import pandas as pd
 import logging
 from typing import List, Dict
 import os
+import numpy as np
 
 logging.basicConfig(format = '%(levelname)s : %(message)s', level = logging.DEBUG)
 
@@ -83,11 +84,32 @@ class ETL:
 
         # Normalize column Names
         df.columns = df.columns.str.replace(" ","_").str.lower()
+        df.rename(columns = {"empoyee_id":"employee_id"},inplace = True)
 
-        return df.head()
+        return df
     
-    def compute_sla_metrics(df):
-        pass
+    def compute_sla_metrics(self, df):
+        # time_cols = [col for col in df.columns if "time" in col]
+        # df_sla = df[time_cols]
+
+        df["response_seconds"] = (df["ticket_resp_time"] - df["ticket_open_time"]).dt.total_seconds()
+
+        df["resolution_minutes"] = (df["issue_res_time"] - df["ticket_resp_time"]).dt.total_seconds() / 60
+
+        df["response_status"] = df['response_seconds'].apply(lambda x: 'failed' if x > 10 else "Passed")
+
+        df["resolution_status"] = df['resolution_minutes'].apply(lambda x: "Excellent" if x < 30 else ("Good" if 30 <= x <= 60 else ("Fair" if 60 < x <= 180 else "Critical")))
+        
+        df["resolution_escalation"] = np.where(df["resolution_status"] == 'Critical',"failed","passed")
+        
+        df_escalation = df[["report_id",'employee_id','designation','manager',"resolution_minutes","resolution_status","resolution_escalation"]]
+        df_escalation = df_escalation[df_escalation["resolution_escalation"] == "failed"]
+
+        df_escalation.to_csv("escalation.csv", index=False)
+
+        return df
+
+
 
 
 def main():
@@ -121,6 +143,9 @@ def main():
     print("\n--- MERGED COLUMNS ---")
     print(df_enriched.columns.tolist())
     print("-----------------------")
+
+    df_service_level_aggrements = etl.compute_sla_metrics(df_enriched)
+    print(df_service_level_aggrements)
     
     
 if __name__ == "__main__":
