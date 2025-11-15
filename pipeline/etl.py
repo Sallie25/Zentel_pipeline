@@ -144,8 +144,8 @@ def main():
     print(df_enriched.columns.tolist())
     print("-----------------------")
 
-    df_service_level_aggrements = etl.compute_sla_metrics(df_enriched)
-    print(df_service_level_aggrements)
+    df_service_level_aggreements = etl.compute_sla_metrics(df_enriched)
+    print(df_service_level_aggreements)
     
     
 if __name__ == "__main__":
