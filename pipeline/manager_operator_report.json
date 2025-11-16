@@ -1,0 +1,526 @@
+{
+    "operator_stats": [
+        {
+            "operator": "Akin",
+            "response_seconds": 332.3720930232558,
+            "resolution_minutes": 162.4711627906977,
+            "report_id": 43
+        },
+        {
+            "operator": "Amelia",
+            "response_seconds": 241.80193236714976,
+            "resolution_minutes": 139.04062801932366,
+            "report_id": 207
+        },
+        {
+            "operator": "Atiku",
+            "response_seconds": 300.4051724137931,
+            "resolution_minutes": 146.45577586206898,
+            "report_id": 348
+        },
+        {
+            "operator": "Bola",
+            "response_seconds": 272.40419947506564,
+            "resolution_minutes": 141.076062992126,
+            "report_id": 381
+        },
+        {
+            "operator": "Boye",
+            "response_seconds": 268.36206896551727,
+            "resolution_minutes": 122.93137931034482,
+            "report_id": 58
+        },
+        {
+            "operator": "Brenda",
+            "response_seconds": 275.58793969849245,
+            "resolution_minutes": 145.78336683417086,
+            "report_id": 199
+        },
+        {
+            "operator": "Bukky",
+            "response_seconds": 259.7477477477477,
+            "resolution_minutes": 152.70252252252251,
+            "report_id": 111
+        },
+        {
+            "operator": "Fola",
+            "response_seconds": 271.86842105263156,
+            "resolution_minutes": 139.4138157894737,
+            "report_id": 76
+        },
+        {
+            "operator": "Goodluck",
+            "response_seconds": 287.0366492146597,
+            "resolution_minutes": 139.98240837696335,
+            "report_id": 191
+        },
+        {
+            "operator": "Habeeb",
+            "response_seconds": 267.82,
+            "resolution_minutes": 149.49894285714285,
+            "report_id": 350
+        },
+        {
+            "operator": "Jennifer",
+            "response_seconds": 266.9868421052632,
+            "resolution_minutes": 152.08491228070176,
+            "report_id": 228
+        },
+        {
+            "operator": "John",
+            "response_seconds": 271.3743169398907,
+            "resolution_minutes": 152.5954918032787,
+            "report_id": 366
+        },
+        {
+            "operator": "Jonathan",
+            "response_seconds": 296.6177606177606,
+            "resolution_minutes": 150.3692664092664,
+            "report_id": 259
+        },
+        {
+            "operator": "Kachi",
+            "response_seconds": 278.1463414634146,
+            "resolution_minutes": 129.99743902439025,
+            "report_id": 82
+        },
+        {
+            "operator": "Kingsley",
+            "response_seconds": 273.778801843318,
+            "resolution_minutes": 146.80248847926268,
+            "report_id": 217
+        },
+        {
+            "operator": "Kola",
+            "response_seconds": 231.1595744680851,
+            "resolution_minutes": 128.90978723404257,
+            "report_id": 94
+        },
+        {
+            "operator": "Mary",
+            "response_seconds": 296.29545454545456,
+            "resolution_minutes": 147.40954545454545,
+            "report_id": 88
+        },
+        {
+            "operator": "Myers",
+            "response_seconds": 275.5974576271187,
+            "resolution_minutes": 142.7802966101695,
+            "report_id": 236
+        },
+        {
+            "operator": "Ore",
+            "response_seconds": 311.961038961039,
+            "resolution_minutes": 168.17181818181817,
+            "report_id": 77
+        },
+        {
+            "operator": "Paul",
+            "response_seconds": 265.92424242424244,
+            "resolution_minutes": 153.50939393939396,
+            "report_id": 132
+        },
+        {
+            "operator": "Popoola",
+            "response_seconds": 272.1585365853659,
+            "resolution_minutes": 143.09731707317073,
+            "report_id": 82
+        },
+        {
+            "operator": "Segun",
+            "response_seconds": 249.01739130434783,
+            "resolution_minutes": 138.13747826086956,
+            "report_id": 115
+        },
+        {
+            "operator": "Sekina",
+            "response_seconds": 276.07440476190476,
+            "resolution_minutes": 147.40181547619048,
+            "report_id": 336
+        },
+        {
+            "operator": "Sheg",
+            "response_seconds": 278.1929824561403,
+            "resolution_minutes": 153.44798245614035,
+            "report_id": 114
+        },
+        {
+            "operator": "Sherifat",
+            "response_seconds": 258.81382978723406,
+            "resolution_minutes": 146.29811170212764,
+            "report_id": 376
+        },
+        {
+            "operator": "Sola",
+            "response_seconds": 261.18461538461537,
+            "resolution_minutes": 138.67023076923078,
+            "report_id": 130
+        },
+        {
+            "operator": "Tunde",
+            "response_seconds": 285.6615853658537,
+            "resolution_minutes": 153.16435975609758,
+            "report_id": 328
+        },
+        {
+            "operator": "Vitus",
+            "response_seconds": 279.9185185185185,
+            "resolution_minutes": 133.96666666666667,
+            "report_id": 135
+        }
+    ],
+    "operator_response_rank": [
+        {
+            "operator": "Kola",
+            "response_seconds": 231.1595744680851,
+            "rank": 1.0
+        },
+        {
+            "operator": "Amelia",
+            "response_seconds": 241.80193236714976,
+            "rank": 2.0
+        },
+        {
+            "operator": "Segun",
+            "response_seconds": 249.01739130434783,
+            "rank": 3.0
+        },
+        {
+            "operator": "Sherifat",
+            "response_seconds": 258.81382978723406,
+            "rank": 4.0
+        },
+        {
+            "operator": "Bukky",
+            "response_seconds": 259.7477477477477,
+            "rank": 5.0
+        },
+        {
+            "operator": "Sola",
+            "response_seconds": 261.18461538461537,
+            "rank": 6.0
+        },
+        {
+            "operator": "Paul",
+            "response_seconds": 265.92424242424244,
+            "rank": 7.0
+        },
+        {
+            "operator": "Jennifer",
+            "response_seconds": 266.9868421052632,
+            "rank": 8.0
+        },
+        {
+            "operator": "Habeeb",
+            "response_seconds": 267.82,
+            "rank": 9.0
+        },
+        {
+            "operator": "Boye",
+            "response_seconds": 268.36206896551727,
+            "rank": 10.0
+        },
+        {
+            "operator": "John",
+            "response_seconds": 271.3743169398907,
+            "rank": 11.0
+        },
+        {
+            "operator": "Fola",
+            "response_seconds": 271.86842105263156,
+            "rank": 12.0
+        },
+        {
+            "operator": "Popoola",
+            "response_seconds": 272.1585365853659,
+            "rank": 13.0
+        },
+        {
+            "operator": "Bola",
+            "response_seconds": 272.40419947506564,
+            "rank": 14.0
+        },
+        {
+            "operator": "Kingsley",
+            "response_seconds": 273.778801843318,
+            "rank": 15.0
+        },
+        {
+            "operator": "Brenda",
+            "response_seconds": 275.58793969849245,
+            "rank": 16.0
+        },
+        {
+            "operator": "Myers",
+            "response_seconds": 275.5974576271187,
+            "rank": 17.0
+        },
+        {
+            "operator": "Sekina",
+            "response_seconds": 276.07440476190476,
+            "rank": 18.0
+        },
+        {
+            "operator": "Kachi",
+            "response_seconds": 278.1463414634146,
+            "rank": 19.0
+        },
+        {
+            "operator": "Sheg",
+            "response_seconds": 278.1929824561403,
+            "rank": 20.0
+        },
+        {
+            "operator": "Vitus",
+            "response_seconds": 279.9185185185185,
+            "rank": 21.0
+        },
+        {
+            "operator": "Tunde",
+            "response_seconds": 285.6615853658537,
+            "rank": 22.0
+        },
+        {
+            "operator": "Goodluck",
+            "response_seconds": 287.0366492146597,
+            "rank": 23.0
+        },
+        {
+            "operator": "Mary",
+            "response_seconds": 296.29545454545456,
+            "rank": 24.0
+        },
+        {
+            "operator": "Jonathan",
+            "response_seconds": 296.6177606177606,
+            "rank": 25.0
+        },
+        {
+            "operator": "Atiku",
+            "response_seconds": 300.4051724137931,
+            "rank": 26.0
+        },
+        {
+            "operator": "Ore",
+            "response_seconds": 311.961038961039,
+            "rank": 27.0
+        },
+        {
+            "operator": "Akin",
+            "response_seconds": 332.3720930232558,
+            "rank": 28.0
+        }
+    ],
+    "operator_resolution_rank": [
+        {
+            "operator": "Boye",
+            "resolution_minutes": 122.93137931034482,
+            "rank": 1.0
+        },
+        {
+            "operator": "Kola",
+            "resolution_minutes": 128.90978723404257,
+            "rank": 2.0
+        },
+        {
+            "operator": "Kachi",
+            "resolution_minutes": 129.99743902439025,
+            "rank": 3.0
+        },
+        {
+            "operator": "Vitus",
+            "resolution_minutes": 133.96666666666667,
+            "rank": 4.0
+        },
+        {
+            "operator": "Segun",
+            "resolution_minutes": 138.13747826086956,
+            "rank": 5.0
+        },
+        {
+            "operator": "Sola",
+            "resolution_minutes": 138.67023076923078,
+            "rank": 6.0
+        },
+        {
+            "operator": "Amelia",
+            "resolution_minutes": 139.04062801932366,
+            "rank": 7.0
+        },
+        {
+            "operator": "Fola",
+            "resolution_minutes": 139.4138157894737,
+            "rank": 8.0
+        },
+        {
+            "operator": "Goodluck",
+            "resolution_minutes": 139.98240837696335,
+            "rank": 9.0
+        },
+        {
+            "operator": "Bola",
+            "resolution_minutes": 141.076062992126,
+            "rank": 10.0
+        },
+        {
+            "operator": "Myers",
+            "resolution_minutes": 142.7802966101695,
+            "rank": 11.0
+        },
+        {
+            "operator": "Popoola",
+            "resolution_minutes": 143.09731707317073,
+            "rank": 12.0
+        },
+        {
+            "operator": "Brenda",
+            "resolution_minutes": 145.78336683417086,
+            "rank": 13.0
+        },
+        {
+            "operator": "Sherifat",
+            "resolution_minutes": 146.29811170212764,
+            "rank": 14.0
+        },
+        {
+            "operator": "Atiku",
+            "resolution_minutes": 146.45577586206898,
+            "rank": 15.0
+        },
+        {
+            "operator": "Kingsley",
+            "resolution_minutes": 146.80248847926268,
+            "rank": 16.0
+        },
+        {
+            "operator": "Sekina",
+            "resolution_minutes": 147.40181547619048,
+            "rank": 17.0
+        },
+        {
+            "operator": "Mary",
+            "resolution_minutes": 147.40954545454545,
+            "rank": 18.0
+        },
+        {
+            "operator": "Habeeb",
+            "resolution_minutes": 149.49894285714285,
+            "rank": 19.0
+        },
+        {
+            "operator": "Jonathan",
+            "resolution_minutes": 150.3692664092664,
+            "rank": 20.0
+        },
+        {
+            "operator": "Jennifer",
+            "resolution_minutes": 152.08491228070176,
+            "rank": 21.0
+        },
+        {
+            "operator": "John",
+            "resolution_minutes": 152.5954918032787,
+            "rank": 22.0
+        },
+        {
+            "operator": "Bukky",
+            "resolution_minutes": 152.70252252252251,
+            "rank": 23.0
+        },
+        {
+            "operator": "Tunde",
+            "resolution_minutes": 153.16435975609758,
+            "rank": 24.0
+        },
+        {
+            "operator": "Sheg",
+            "resolution_minutes": 153.44798245614035,
+            "rank": 25.0
+        },
+        {
+            "operator": "Paul",
+            "resolution_minutes": 153.50939393939396,
+            "rank": 26.0
+        },
+        {
+            "operator": "Akin",
+            "resolution_minutes": 162.4711627906977,
+            "rank": 27.0
+        },
+        {
+            "operator": "Ore",
+            "resolution_minutes": 168.17181818181817,
+            "rank": 28.0
+        }
+    ],
+    "manager_stats": [
+        {
+            "manager": "Kerry",
+            "response_seconds": 274.47430058555625,
+            "resolution_minutes": 145.54471698113207,
+            "report_id": 1537
+        },
+        {
+            "manager": "Seun",
+            "response_seconds": 274.61058344640435,
+            "resolution_minutes": 145.27899592944368,
+            "report_id": 737
+        },
+        {
+            "manager": "Victor",
+            "response_seconds": 275.717907444668,
+            "resolution_minutes": 147.95339235412476,
+            "report_id": 2485
+        },
+        {
+            "manager": "Wale",
+            "response_seconds": 268.5133333333333,
+            "resolution_minutes": 141.2973333333333,
+            "report_id": 600
+        }
+    ],
+    "manager_response_rank": [
+        {
+            "manager": "Wale",
+            "response_seconds": 268.5133333333333,
+            "rank": 1.0
+        },
+        {
+            "manager": "Kerry",
+            "response_seconds": 274.47430058555625,
+            "rank": 2.0
+        },
+        {
+            "manager": "Seun",
+            "response_seconds": 274.61058344640435,
+            "rank": 3.0
+        },
+        {
+            "manager": "Victor",
+            "response_seconds": 275.717907444668,
+            "rank": 4.0
+        }
+    ],
+    "manager_resolution_rank": [
+        {
+            "manager": "Wale",
+            "resolution_minutes": 141.2973333333333,
+            "rank": 1.0
+        },
+        {
+            "manager": "Seun",
+            "resolution_minutes": 145.27899592944368,
+            "rank": 2.0
+        },
+        {
+            "manager": "Kerry",
+            "resolution_minutes": 145.54471698113207,
+            "rank": 3.0
+        },
+        {
+            "manager": "Victor",
+            "resolution_minutes": 147.95339235412476,
+            "rank": 4.0
+        }
+    ]
+}

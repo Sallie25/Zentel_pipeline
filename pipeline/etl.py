@@ -3,6 +3,7 @@ import logging
 from typing import List, Dict
 import os
 import numpy as np
+import json
 
 logging.basicConfig(format = '%(levelname)s : %(message)s', level = logging.DEBUG)
 
@@ -86,28 +87,122 @@ class ETL:
         df.columns = df.columns.str.replace(" ","_").str.lower()
         df.rename(columns = {"empoyee_id":"employee_id"},inplace = True)
 
-        return df
+        # Drop duplicates
+        df_cleaned = df.drop_duplicates(subset="report_id")
+        df_cleaned.reset_index(drop = True, inplace = True)
+        return df_cleaned
     
     def compute_sla_metrics(self, df):
         # time_cols = [col for col in df.columns if "time" in col]
         # df_sla = df[time_cols]
 
-        df["response_seconds"] = (df["ticket_resp_time"] - df["ticket_open_time"]).dt.total_seconds()
+        df["response_seconds"] = round(
+            (df["ticket_resp_time"] - df["ticket_open_time"]).dt.total_seconds(),
+            2
+        )
 
-        df["resolution_minutes"] = (df["issue_res_time"] - df["ticket_resp_time"]).dt.total_seconds() / 60
+        df["resolution_minutes"] = round(
+            (df["issue_res_time"] - df["ticket_resp_time"]).dt.total_seconds() / 60,
+           2
+        ) 
+        df["response_sla_pass"] = df['response_seconds'].apply(lambda x: 'failed' if x > 10 else "Passed")
 
-        df["response_status"] = df['response_seconds'].apply(lambda x: 'failed' if x > 10 else "Passed")
-
-        df["resolution_status"] = df['resolution_minutes'].apply(lambda x: "Excellent" if x < 30 else ("Good" if 30 <= x <= 60 else ("Fair" if 60 < x <= 180 else "Critical")))
+        df["resolution_category"] = df['resolution_minutes'].apply(lambda x: "Excellent" if x < 30 else ("Good" if 30 <= x <= 60 else ("Fair" if 60 < x <= 180 else "Critical")))
         
-        df["resolution_escalation"] = np.where(df["resolution_status"] == 'Critical',"failed","passed")
+        df["resolution_sla_pass"] = np.where(df["resolution_category"] == 'Critical',"failed","passed")
         
-        df_escalation = df[["report_id",'employee_id','designation','manager',"resolution_minutes","resolution_status","resolution_escalation"]]
-        df_escalation = df_escalation[df_escalation["resolution_escalation"] == "failed"]
+        df_escalation = df[["report_id",'employee_id','designation','manager',"resolution_minutes","resolution_sla_pass","resolution_category"]]
+        df_escalation = df_escalation[df_escalation["resolution_sla_pass"] == "failed"]
 
         df_escalation.to_csv("escalation.csv", index=False)
 
         return df
+
+
+    def manager_operator_performance(self, df):
+        # Fix typo in column names
+        df = df.rename(columns={"empoyee_id": "employee_id", "employee_name": "operator"})
+
+        # -----------------------------
+        # OPERATOR PERFORMANCE
+        # -----------------------------
+        operator_stats = df.groupby("operator").agg({
+            "response_seconds": "mean",
+            "resolution_minutes": "mean",
+            "report_id": "count"
+        }).reset_index()
+
+        # Operator response ranking
+        operator_response_time_secs_rank = operator_stats[["operator", "response_seconds"]].copy()
+        operator_response_time_secs_rank["rank"] = (
+            operator_response_time_secs_rank["response_seconds"]
+            .rank(ascending=True, method="max")
+        )
+        operator_response_time_secs_rank = operator_response_time_secs_rank.sort_values("rank")
+
+        # Operator resolution ranking
+        operator_resolution_time_minutes_rank = operator_stats[["operator", "resolution_minutes"]].copy()
+        operator_resolution_time_minutes_rank["rank"] = (
+            operator_resolution_time_minutes_rank["resolution_minutes"]
+            .rank(ascending=True, method="max")
+        )
+        operator_resolution_time_minutes_rank = operator_resolution_time_minutes_rank.sort_values("rank")
+
+        # -----------------------------
+        # MANAGER PERFORMANCE
+        # -----------------------------
+        manager_stats = df.groupby("manager").agg({
+            "response_seconds": "mean",
+            "resolution_minutes": "mean",
+            "report_id": "count"
+        }).reset_index()
+
+        # Manager response ranking
+        manager_response_time_secs_rank = manager_stats[["manager", "response_seconds"]].copy()
+        manager_response_time_secs_rank["rank"] = (
+            manager_response_time_secs_rank["response_seconds"]
+            .rank(ascending=True, method="max")
+        )
+        manager_response_time_secs_rank = manager_response_time_secs_rank.sort_values("rank")
+
+        # Manager resolution ranking
+        manager_resolution_time_minutes_rank = manager_stats[["manager", "resolution_minutes"]].copy()
+        manager_resolution_time_minutes_rank["rank"] = (
+            manager_resolution_time_minutes_rank["resolution_minutes"]
+            .rank(ascending=True, method="max")
+        )
+        manager_resolution_time_minutes_rank = manager_resolution_time_minutes_rank.sort_values("rank")
+
+        # Return all results in a dictionary
+        return {
+            "operator_stats": operator_stats,
+            "operator_response_rank": operator_response_time_secs_rank,
+            "operator_resolution_rank": operator_resolution_time_minutes_rank,
+            "manager_stats": manager_stats,
+            "manager_response_rank": manager_response_time_secs_rank,
+            "manager_resolution_rank": manager_resolution_time_minutes_rank
+        }
+
+
+    
+
+    def save_manager_operator_report(self, df, output_path="manager_operator_report.json"):
+        report = self.manager_operator_performance(df)
+
+        # Convert all DataFrames to dict for JSON serialization
+        json_ready_report = {
+            key: value.to_dict(orient="records")
+            for key, value in report.items()
+        }
+
+        # Write to JSON file
+        with open(output_path, "w") as f:
+            json.dump(json_ready_report, f, indent=4)
+
+        return f"Manager/Operator performance report saved to {output_path}"
+
+
+
 
 
 
@@ -146,6 +241,12 @@ def main():
 
     df_service_level_aggreements = etl.compute_sla_metrics(df_enriched)
     print(df_service_level_aggreements)
+
+    print("-----------------------")
+    performance_reports = etl.manager_operator_performance(df_service_level_aggreements)
+
+    print(etl.save_manager_operator_report(df_service_level_aggreements))
+
     
     
 if __name__ == "__main__":
